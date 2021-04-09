@@ -14,7 +14,7 @@ $ sudo mv ./kind /usr/local/bin/kind
 
 $ sudo apt update
 
-2) install a few prerequisite packages which let apt use packages over HTTPS.
+2) Install a few prerequisite packages which let apt use packages over HTTPS.
 
 $ sudo apt install apt-transport-https ca-certificates curl software-properties-common
 
@@ -26,7 +26,7 @@ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 
-5) update the package database with the Docker packages from the newly added repo
+5) Update the package database with the Docker packages from the newly added repo
 
 $ sudo apt update
 
@@ -66,7 +66,7 @@ nodes:
 - role: worker1
 - role: worker2
 
-2) create cluster using Kind command , The extra port mapping is required to allow us to talk to the webserver
+2) Create cluster using Kind command , The extra port mapping is required to allow us to talk to the webserver
 
 $ kind create cluster --name mycluster --config kind.config.yaml --wait 5m
 
@@ -108,11 +108,11 @@ $ sudo  kubectl apply -f helloworld.yaml
 
 $ sudo kubectl get pods
 
-3) check logs of th ppod 
+3) Check logs of th ppod 
 
 $  sudo kubectl logs (pod name)
 
-# Create the service 
+# Create the Service 
 
 1) Create service file first 
 
@@ -132,11 +132,11 @@ spec:
       port: 80
       nodePort: 30080" 
       
- 2) apply service 
+ 2) Apply service 
 
 $ sudo kubectl apply -f helloservice.yaml
 
-3) check services using following command
+3) Check services using following command
 
 $ sudo kubectl get services
 
@@ -144,3 +144,22 @@ $ sudo kubectl get services
 
 $ sudo curl localhost
 
+
+
+# Change Content
+
+1)Enter in the running pod using following command
+
+$ sudo kubectl exec -it $podname bash 
+
+2) Under pod go to the path /usr/share/nginx/html
+
+$ cd /usr/share/nginx/html
+
+3) change the content of a index.html file 
+
+$ echo "hello world" >> index.html
+
+4) check using curl commadn on host machine content is change or not .
+
+$ curl localhost
