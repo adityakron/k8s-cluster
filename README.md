@@ -146,6 +146,9 @@ $ sudo curl localhost
 
 
 
+
+
+
 # Change Content
 
 1)Enter in the running pod using following command
@@ -163,3 +166,9 @@ $ echo "hello world" >> index.html
 4) check using curl commadn on host machine content is change or not .
 
 $ curl localhost
+
+
+
+# AWS cluster
+
+1) launch Ubuntu 18.04 free tier instance and configure  it and run the script on it .
